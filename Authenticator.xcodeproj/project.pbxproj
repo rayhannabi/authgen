@@ -10,6 +10,7 @@
 		71114A852B77D1C000F27530 /* AuthenticatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71114A842B77D1C000F27530 /* AuthenticatorApp.swift */; };
 		71114A892B77D1C200F27530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71114A882B77D1C200F27530 /* Assets.xcassets */; };
 		71114A8D2B77D1C200F27530 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71114A8C2B77D1C200F27530 /* Preview Assets.xcassets */; };
+		715555822BA8E871007B3905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715555812BA8E871007B3905 /* LaunchScreen.storyboard */; };
 		715B9CEB2BA85FA300A5775F /* AuthenticatorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 715B9CEA2BA85FA300A5775F /* AuthenticatorKit */; };
 		71C42B522BA85C97009C0BA0 /* AuthenticatorWatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C42B512BA85C97009C0BA0 /* AuthenticatorWatchOSApp.swift */; };
 		71C42B542BA85C97009C0BA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C42B532BA85C97009C0BA0 /* ContentView.swift */; };
@@ -49,6 +50,7 @@
 		71114A882B77D1C200F27530 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71114A8C2B77D1C200F27530 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71114A942B77D39D00F27530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		715555812BA8E871007B3905 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71C42B4F2BA85C97009C0BA0 /* Authenticator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authenticator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C42B512BA85C97009C0BA0 /* AuthenticatorWatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorWatchOSApp.swift; sourceTree = "<group>"; };
 		71C42B532BA85C97009C0BA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				71114A842B77D1C000F27530 /* AuthenticatorApp.swift */,
 				71114A882B77D1C200F27530 /* Assets.xcassets */,
 				71114A8B2B77D1C200F27530 /* Preview Content */,
+				715555812BA8E871007B3905 /* LaunchScreen.storyboard */,
 			);
 			path = Authenticator;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715555822BA8E871007B3905 /* LaunchScreen.storyboard in Resources */,
 				71114A8D2B77D1C200F27530 /* Preview Assets.xcassets in Resources */,
 				71114A892B77D1C200F27530 /* Assets.xcassets in Resources */,
 			);
@@ -394,6 +398,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -410,6 +415,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -437,6 +443,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -453,6 +460,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
