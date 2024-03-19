@@ -18,48 +18,48 @@ public struct Home {
     var entries: [Entry]
     var selectedEntry: Entry?
     var otpState: OTPGenerator.State?
-    var searchState: SearchState = .init()
+    var searchState: HomeSearch.State
 
     var filteredEntries: [Entry] {
-      if !searchState.isSearching || searchState.searchText.isEmpty {
+      if !searchState.isSearching || searchState.text.isEmpty {
         return entries
       }
       return entries.filter { entry in
-        entry.account.localizedCaseInsensitiveContains(searchState.searchText)
-          || entry.issuer?.localizedCaseInsensitiveContains(searchState.searchText) ?? false
+        entry.account.localizedCaseInsensitiveContains(searchState.text)
+          || entry.issuer?.localizedCaseInsensitiveContains(searchState.text) ?? false
       }
     }
 
     public init(entries: [Entry], selectedEntry: Entry? = nil) {
       self.entries = entries
       self.selectedEntry = selectedEntry ?? entries.first
+      self.searchState = .init(showsSearchButton: !entries.isEmpty)
       if let entry = self.selectedEntry {
         self.otpState = .init(entry: entry)
       }
     }
   }
 
-  public struct SearchState: Equatable {
-    var isSearching = false
-    var isFocused = false
-    var searchText = ""
-  }
-
   public enum Action: Equatable, BindableAction {
+    case binding(BindingAction<State>)
     case selectEntry(Entry)
     case editEntry(Entry)
     case deleteEntry(Entry)
-    case toggleSearch(Bool)
     case otpAction(OTPGenerator.Action)
-    case binding(BindingAction<State>)
+    case searchAction(HomeSearch.Action)
   }
-  
+
   public init() {}
 
   public var body: some ReducerOf<Home> {
     BindingReducer()
-    Reduce { state, action in
+    Scope(state: \.searchState, action: \.searchAction) {
+      HomeSearch()
+    }
+    Reduce<State, Action> { state, action in
       switch action {
+      case .binding:
+        return .none
       case .selectEntry(let entry):
         return updateEntrySelection(&state, entry: entry)
       case .editEntry(let entry):
@@ -71,20 +71,11 @@ public struct Home {
         let nextEntry = state.entries[indexToSelect]
         state.entries.remove(at: indexToDelete)
         return updateEntrySelection(&state, entry: nextEntry)
-      case .toggleSearch(let isSearching):
-        state.searchState = .init(isSearching: isSearching, isFocused: isSearching)
-        if isSearching {
-          state.otpState = nil
-        } else {
-          if let entry = state.selectedEntry {
-            return updateEntrySelection(&state, entry: entry)
-          }
-          return .send(.otpAction(.startTimer))
-        }
-        return .none
       case .otpAction:
         return .none
-      case .binding(_):
+      case .searchAction(.toggleSearch(let isSearching)):
+        return .send(.otpAction(.toggleCollapse(isSearching)))
+      case .searchAction:
         return .none
       }
     }
@@ -96,7 +87,10 @@ public struct Home {
   private func updateEntrySelection(_ state: inout State, entry: Entry) -> Effect<Action> {
     state.selectedEntry = entry
     state.otpState = .init(entry: entry)
-    state.searchState = .init()
-    return .send(.otpAction(.startTimer))
+    return .merge(
+      .send(.searchAction(.toggleSearch(false))),
+      .send(.otpAction(.toggleCollapse(false))),
+      .send(.otpAction(.startTimer))
+    )
   }
 }

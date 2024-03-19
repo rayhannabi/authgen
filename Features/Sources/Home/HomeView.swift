@@ -35,67 +35,17 @@ public struct HomeView: View {
     }
     .contentMargins(16, for: .scrollContent)
     .safeAreaInset(edge: .top) {
-      let isSearching = store.searchState.isSearching
-      Group {
-        if isSearching {
-          HomeSearchBar(
-            text: $store.searchState.searchText,
-            isFocused: _isFocused,
-            namespace: namespace
-          ) {
-            store.send(.toggleSearch(false), animation: .snappy)
-          }
-        } else {
-          ZStack(alignment: .top) {
-            codeView
-            HomeNavigationBar(showsSearch: !store.entries.isEmpty, namespace: namespace) {
-              store.send(.toggleSearch(true), animation: .snappy)
-            } settingsAction: {
-              // TODO: open app settings
-            }
-          }
-        }
-      }
-      .background {
-        VStack(spacing: 0) {
-          Rectangle()
-            .fill(.thickMaterial)
-            .background {
-              AsyncImage(url: store.selectedEntry?.iconURL) { image in
-                image
-                  .resizable()
-                  .blur(radius: 80)
-                  .clipped()
-              } placeholder: {
-                EmptyView()
-              }
-            }
-            .ignoresSafeArea()
-          Divider()
-        }
-      }
+      navigationBar
     }
     .syncFocusState($isFocused, with: $store.searchState.isFocused)
   }
 }
 
 extension HomeView {
-  private var codeView: some View {
-    VStack {
-      if let store = store.scope(state: \.otpState, action: \.otpAction),
-        !self.store.searchState.isSearching
-      {
-        OTPGeneratorView(store: store)
-          .padding(.top, 6)
-      }
-    }
-    .frame(maxWidth: .infinity)
-  }
-
   private var entriesView: some View {
     ScrollView {
       ForEach(store.filteredEntries) { entry in
-        HomeEntryView(entry: entry, searchText: $store.searchState.searchText) { currentEntry in
+        HomeEntryView(entry: entry, searchText: $store.searchState.text) { currentEntry in
           store.send(.selectEntry(currentEntry), animation: .default)
         } editAction: { currentEntry in
           store.send(.editEntry(currentEntry))
@@ -107,20 +57,50 @@ extension HomeView {
   }
 
   private var addButton: some View {
-    ZStack {
-      VStack {
+    VStack {
+      Spacer()
+      HStack {
         Spacer()
-        HStack {
-          Spacer()
-          HomeAddButton {
+        HomeAddButton {
 
-          } qrScanAction: {
+        } manualEntryAction: {
 
-          } manualEntryAction: {
-
-          }
         }
       }
+    }
+  }
+
+  private var navigationBar: some View {
+    ZStack(alignment: .top) {
+      if let otpStore = store.scope(state: \.otpState, action: \.otpAction) {
+        OTPGeneratorView(store: otpStore)
+          .padding(.top, 6)
+      }
+      HomeSearchBar(
+        store: store.scope(state: \.searchState, action: \.searchAction),
+        isFocused: _isFocused,
+        namespace: namespace
+      )
+    }
+    .background { navigationBarBackground }
+  }
+
+  private var navigationBarBackground: some View {
+    VStack(spacing: 0) {
+      Rectangle()
+        .fill(.thickMaterial)
+        .background {
+          AsyncImage(url: store.selectedEntry?.iconURL) { image in
+            image
+              .resizable()
+              .blur(radius: 80)
+              .clipped()
+          } placeholder: {
+            EmptyView()
+          }
+        }
+        .ignoresSafeArea()
+      Divider()
     }
   }
 

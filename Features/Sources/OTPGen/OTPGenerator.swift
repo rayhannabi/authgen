@@ -19,8 +19,9 @@ public struct OTPGenerator {
     var otp = "000000"
     var elapsedSeconds = maxSeconds
     var progress: Double = 1
+    var isCollapsed = false
     var isCloseToEnd: Bool { progress <= 0.2 }
-    
+
     public init(entry: Entry) {
       self.entry = entry
     }
@@ -29,6 +30,7 @@ public struct OTPGenerator {
   public enum Action: Equatable {
     case startTimer
     case tick
+    case toggleCollapse(Bool)
   }
 
   private enum CancelID: Hashable {
@@ -36,7 +38,7 @@ public struct OTPGenerator {
   }
 
   @Dependency(\.continuousClock) var clock
-  
+
   public init() {}
 
   public var body: some ReducerOf<OTPGenerator> {
@@ -56,6 +58,10 @@ public struct OTPGenerator {
           reset(&state),
           generateOTP(&state)
         )
+
+      case .toggleCollapse(let isCollapsed):
+        state.isCollapsed = isCollapsed
+        return .none
       }
     }
   }

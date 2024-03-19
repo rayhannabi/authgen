@@ -18,22 +18,24 @@ public struct OTPGeneratorView: View {
 
   public var body: some View {
     VStack(spacing: 2) {
-      Group {
-        iconView
-        issuerView
-        accountView
-        codeView
+      if !store.isCollapsed {
+        Group {
+          iconView
+          issuerView
+          accountView
+          codeView
+        }
+        .shadow(color: .primary.opacity(0.3), radius: 16)
+
+        Divider()
+
+        HStack {
+          lifetimeView
+          Spacer()
+          OTPClipboardButton(value: store.otp)
+        }
+        .padding(.vertical)
       }
-      .shadow(color: .primary.opacity(0.3), radius: 16)
-      
-      Divider()
-      
-      HStack {
-        lifetimeView
-        Spacer()
-        OTPClipboardButton(value: store.otp)
-      }
-      .padding(.vertical)
     }
     .padding(.horizontal)
     .task {

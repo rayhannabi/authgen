@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeAddButton: View {
   let action: () -> Void
-  let qrScanAction: () -> Void
   let manualEntryAction: () -> Void
 
   var body: some View {
@@ -25,10 +24,16 @@ struct HomeAddButton: View {
     .buttonStyle(.plain)
     #if os(iOS)
       .contextMenu {
-        Button("Scan QR code", systemImage: "qrcode.viewfinder", action: qrScanAction)
+        Button("Scan QR code", systemImage: "qrcode.viewfinder", action: action)
         Button("Add manually", systemImage: "pencil", action: manualEntryAction)
       }
     #endif
     .padding()
   }
 }
+
+#if DEBUG
+  #Preview {
+    HomeAddButton(action: {}, manualEntryAction: {})
+  }
+#endif
