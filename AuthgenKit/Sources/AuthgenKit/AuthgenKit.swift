@@ -6,9 +6,9 @@
 @_exported import SwiftUI
 @_exported import Utilities
 
-// MARK: - AuthenticatorKit
+// MARK: - AuthgenKit
 
-public enum AuthenticatorKit {
-  public static var bundleID: String { "com.rayhannabi.lab.Authenticatorkit" }
+public enum AuthgenKit {
+  public static var bundleID: String { "com.rayhannabi.lab.authgenkit" }
   public static var version: String { "1.0.0" }
 }

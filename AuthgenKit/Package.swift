@@ -3,12 +3,12 @@
 import PackageDescription
 
 let package = Package(
-  name: "AuthenticatorKit",
+  name: "AuthgenKit",
   platforms: [.iOS(.v17), .macOS(.v14), .watchOS(.v10)],
   products: [
     .library(
-      name: "AuthenticatorKit",
-      targets: ["AuthenticatorKit"]
+      name: "AuthgenKit",
+      targets: ["AuthgenKit"]
     )
   ],
   dependencies: [
@@ -18,7 +18,7 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "AuthenticatorKit",
+      name: "AuthgenKit",
       dependencies: [
         "Features",
         "Domain",

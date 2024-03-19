@@ -11,9 +11,9 @@
       location = "group:Utilities">
    </FileRef>
    <FileRef
-      location = "group:AuthenticatorKit">
+      location = "group:AuthgenKit">
    </FileRef>
    <FileRef
-      location = "container:Authenticator.xcodeproj">
+      location = "container:Authgen.xcodeproj">
    </FileRef>
 </Workspace>

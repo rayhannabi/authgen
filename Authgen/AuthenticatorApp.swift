@@ -1,14 +1,14 @@
 //
-//  AuthenticatorApp.swift
-//  Authenticator
+//  AuthgenApp.swift
+//  Authgen
 //
 //  Created by Rayhan Nabi on 10/2/24.
 //
 
-import AuthenticatorKit
+import AuthgenKit
 
 @main
-struct AuthenticatorApp: App {
+struct AuthgenApp: App {
   let rootStore = StoreOf<Root>(initialState: Root.State(), reducer: Root.init)
 
   var body: some Scene {

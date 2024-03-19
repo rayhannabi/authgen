@@ -11,8 +11,31 @@
 		71114A892B77D1C200F27530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71114A882B77D1C200F27530 /* Assets.xcassets */; };
 		71114A8D2B77D1C200F27530 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71114A8C2B77D1C200F27530 /* Preview Assets.xcassets */; };
 		715555822BA8E871007B3905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715555812BA8E871007B3905 /* LaunchScreen.storyboard */; };
-		71C42B612BA85E01009C0BA0 /* AuthenticatorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71C42B602BA85E01009C0BA0 /* AuthenticatorKit */; };
+		715555852BA9CCE3007B3905 /* AuthgenKit in Frameworks */ = {isa = PBXBuildFile; productRef = 715555842BA9CCE3007B3905 /* AuthgenKit */; };
+		71C68CF82BA9CE4000717DE8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71C68CF22BA9CE4000717DE8 /* Preview Assets.xcassets */; };
+		71C68CF92BA9CE4000717DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71C68CF42BA9CE4000717DE8 /* Assets.xcassets */; };
+		71C68CFA2BA9CE4000717DE8 /* AuthgenWatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C68CF52BA9CE4000717DE8 /* AuthgenWatchOSApp.swift */; };
+		71C68CFB2BA9CE4000717DE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C68CF62BA9CE4000717DE8 /* ContentView.swift */; };
+		71C68CFD2BA9CE7F00717DE8 /* AuthgenKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71C68CFC2BA9CE7F00717DE8 /* AuthgenKit */; };
+		71C68CFE2BA9D01B00717DE8 /* Authgen.app in Resources */ = {isa = PBXBuildFile; fileRef = 71114A812B77D1C000F27530 /* Authgen.app */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71C68CFF2BA9D01B00717DE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71114A792B77D1C000F27530 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71114A802B77D1C000F27530;
+			remoteInfo = Authgen;
+		};
+		71C68D012BA9D02300717DE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71114A792B77D1C000F27530 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71114A802B77D1C000F27530;
+			remoteInfo = Authgen;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		71C42B442BA85C13009C0BA0 /* Embed Watch Content */ = {
@@ -28,12 +51,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		71114A812B77D1C000F27530 /* Authenticator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authenticator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71114A812B77D1C000F27530 /* Authgen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authgen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71114A842B77D1C000F27530 /* AuthenticatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorApp.swift; sourceTree = "<group>"; };
 		71114A882B77D1C200F27530 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71114A8C2B77D1C200F27530 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71114A942B77D39D00F27530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		715555812BA8E871007B3905 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		71C68CF22BA9CE4000717DE8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		71C68CF42BA9CE4000717DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71C68CF52BA9CE4000717DE8 /* AuthgenWatchOSApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthgenWatchOSApp.swift; sourceTree = "<group>"; };
+		71C68CF62BA9CE4000717DE8 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		71F4EFD82BA9CDEB00624A0F /* Authgen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authgen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +69,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71C42B612BA85E01009C0BA0 /* AuthenticatorKit in Frameworks */,
+				715555852BA9CCE3007B3905 /* AuthgenKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71F4EFD52BA9CDEB00624A0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71C68CFD2BA9CE7F00717DE8 /* AuthgenKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,7 +87,8 @@
 		71114A782B77D1C000F27530 = {
 			isa = PBXGroup;
 			children = (
-				71114A832B77D1C000F27530 /* Authenticator */,
+				71114A832B77D1C000F27530 /* Authgen */,
+				71C68CF72BA9CE4000717DE8 /* AuthgenWatchOS */,
 				71114A822B77D1C000F27530 /* Products */,
 				71114A952B77D40D00F27530 /* Frameworks */,
 			);
@@ -60,12 +97,13 @@
 		71114A822B77D1C000F27530 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71114A812B77D1C000F27530 /* Authenticator.app */,
+				71114A812B77D1C000F27530 /* Authgen.app */,
+				71F4EFD82BA9CDEB00624A0F /* Authgen.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71114A832B77D1C000F27530 /* Authenticator */ = {
+		71114A832B77D1C000F27530 /* Authgen */ = {
 			isa = PBXGroup;
 			children = (
 				71114A942B77D39D00F27530 /* Info.plist */,
@@ -74,7 +112,7 @@
 				71114A8B2B77D1C200F27530 /* Preview Content */,
 				715555812BA8E871007B3905 /* LaunchScreen.storyboard */,
 			);
-			path = Authenticator;
+			path = Authgen;
 			sourceTree = "<group>";
 		};
 		71114A8B2B77D1C200F27530 /* Preview Content */ = {
@@ -92,12 +130,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		71C68CF32BA9CE4000717DE8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				71C68CF22BA9CE4000717DE8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		71C68CF72BA9CE4000717DE8 /* AuthgenWatchOS */ = {
+			isa = PBXGroup;
+			children = (
+				71C68CF32BA9CE4000717DE8 /* Preview Content */,
+				71C68CF42BA9CE4000717DE8 /* Assets.xcassets */,
+				71C68CF52BA9CE4000717DE8 /* AuthgenWatchOSApp.swift */,
+				71C68CF62BA9CE4000717DE8 /* ContentView.swift */,
+			);
+			path = AuthgenWatchOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		71114A802B77D1C000F27530 /* Authenticator */ = {
+		71114A802B77D1C000F27530 /* Authgen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71114A902B77D1C200F27530 /* Build configuration list for PBXNativeTarget "Authenticator" */;
+			buildConfigurationList = 71114A902B77D1C200F27530 /* Build configuration list for PBXNativeTarget "Authgen" */;
 			buildPhases = (
 				71114A7D2B77D1C000F27530 /* Sources */,
 				71114A7E2B77D1C000F27530 /* Frameworks */,
@@ -108,12 +165,34 @@
 			);
 			dependencies = (
 			);
-			name = Authenticator;
+			name = Authgen;
 			packageProductDependencies = (
-				71C42B602BA85E01009C0BA0 /* AuthenticatorKit */,
+				715555842BA9CCE3007B3905 /* AuthgenKit */,
 			);
 			productName = Otpio;
-			productReference = 71114A812B77D1C000F27530 /* Authenticator.app */;
+			productReference = 71114A812B77D1C000F27530 /* Authgen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		71F4EFD72BA9CDEB00624A0F /* AuthgenWatchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71F4EFE32BA9CDEC00624A0F /* Build configuration list for PBXNativeTarget "AuthgenWatchOS" */;
+			buildPhases = (
+				71F4EFD42BA9CDEB00624A0F /* Sources */,
+				71F4EFD52BA9CDEB00624A0F /* Frameworks */,
+				71F4EFD62BA9CDEB00624A0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71C68D002BA9D01B00717DE8 /* PBXTargetDependency */,
+				71C68D022BA9D02300717DE8 /* PBXTargetDependency */,
+			);
+			name = AuthgenWatchOS;
+			packageProductDependencies = (
+				71C68CFC2BA9CE7F00717DE8 /* AuthgenKit */,
+			);
+			productName = "AuthgenWatchOS Watch App";
+			productReference = 71F4EFD82BA9CDEB00624A0F /* Authgen.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -129,9 +208,12 @@
 					71114A802B77D1C000F27530 = {
 						CreatedOnToolsVersion = 15.2;
 					};
+					71F4EFD72BA9CDEB00624A0F = {
+						CreatedOnToolsVersion = 15.3;
+					};
 				};
 			};
-			buildConfigurationList = 71114A7C2B77D1C000F27530 /* Build configuration list for PBXProject "Authenticator" */;
+			buildConfigurationList = 71114A7C2B77D1C000F27530 /* Build configuration list for PBXProject "Authgen" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -144,7 +226,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				71114A802B77D1C000F27530 /* Authenticator */,
+				71114A802B77D1C000F27530 /* Authgen */,
+				71F4EFD72BA9CDEB00624A0F /* AuthgenWatchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -160,6 +243,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71F4EFD62BA9CDEB00624A0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71C68CF92BA9CE4000717DE8 /* Assets.xcassets in Resources */,
+				71C68CF82BA9CE4000717DE8 /* Preview Assets.xcassets in Resources */,
+				71C68CFE2BA9D01B00717DE8 /* Authgen.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -171,7 +264,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71F4EFD42BA9CDEB00624A0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71C68CFB2BA9CE4000717DE8 /* ContentView.swift in Sources */,
+				71C68CFA2BA9CE4000717DE8 /* AuthgenWatchOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71C68D002BA9D01B00717DE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71114A802B77D1C000F27530 /* Authgen */;
+			targetProxy = 71C68CFF2BA9D01B00717DE8 /* PBXContainerItemProxy */;
+		};
+		71C68D022BA9D02300717DE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71114A802B77D1C000F27530 /* Authgen */;
+			targetProxy = 71C68D012BA9D02300717DE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		71114A8E2B77D1C200F27530 /* Debug */ = {
@@ -293,6 +408,7 @@
 		71114A912B77D1C200F27530 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -300,12 +416,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "Authenticator/Preview\\ Content/Preview\\ Assets.xcassets";
+				DEVELOPMENT_ASSET_PATHS = "Authgen/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = D7UYKU8YXP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Authenticator/Info.plist;
+				INFOPLIST_FILE = Authgen/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -322,7 +438,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rayhannabi.lab.authenticator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rayhannabi.lab.authgen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -337,6 +453,7 @@
 		71114A922B77D1C200F27530 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -344,12 +461,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "Authenticator/Preview\\ Content/Preview\\ Assets.xcassets";
+				DEVELOPMENT_ASSET_PATHS = "Authgen/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = D7UYKU8YXP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Authenticator/Info.plist;
+				INFOPLIST_FILE = Authgen/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -366,7 +483,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rayhannabi.lab.authenticator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rayhannabi.lab.authgen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -378,10 +495,69 @@
 			};
 			name = Release;
 		};
+		71F4EFE42BA9CDEC00624A0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "AuthgenWatchOS/Preview\\ Content/Preview\\ Assets.xcassets";
+				DEVELOPMENT_TEAM = D7UYKU8YXP;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.rayhannabi.lab.authgen;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_NAME = Authgen;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Debug;
+		};
+		71F4EFE52BA9CDEC00624A0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "AuthgenWatchOS/Preview\\ Content/Preview\\ Assets.xcassets";
+				DEVELOPMENT_TEAM = D7UYKU8YXP;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.rayhannabi.lab.authgen;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_NAME = Authgen;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71114A7C2B77D1C000F27530 /* Build configuration list for PBXProject "Authenticator" */ = {
+		71114A7C2B77D1C000F27530 /* Build configuration list for PBXProject "Authgen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71114A8E2B77D1C200F27530 /* Debug */,
@@ -390,7 +566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71114A902B77D1C200F27530 /* Build configuration list for PBXNativeTarget "Authenticator" */ = {
+		71114A902B77D1C200F27530 /* Build configuration list for PBXNativeTarget "Authgen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71114A912B77D1C200F27530 /* Debug */,
@@ -399,12 +575,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		71F4EFE32BA9CDEC00624A0F /* Build configuration list for PBXNativeTarget "AuthgenWatchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71F4EFE42BA9CDEC00624A0F /* Debug */,
+				71F4EFE52BA9CDEC00624A0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		71C42B602BA85E01009C0BA0 /* AuthenticatorKit */ = {
+		715555842BA9CCE3007B3905 /* AuthgenKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AuthenticatorKit;
+			productName = AuthgenKit;
+		};
+		71C68CFC2BA9CE7F00717DE8 /* AuthgenKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthgenKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
