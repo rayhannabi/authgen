@@ -5,14 +5,14 @@
 //  Created by Rayhan Nabi on 19/3/24.
 //
 
-import ComposableArchitecture
+import Common
 import Foundation
 
 @Reducer
 public struct HomeSearch {
   @ObservableState
   public struct State: Equatable {
-    var showsSearchButton: Bool
+    var showsSearch: Bool
     var isSearching = false
     var isFocused = false
     var text = ""
@@ -21,6 +21,7 @@ public struct HomeSearch {
   public enum Action: Equatable, BindableAction {
     case onAppear
     case toggleSearch(Bool)
+    case settingsTapped
     case binding(BindingAction<State>)
   }
 
@@ -37,6 +38,8 @@ public struct HomeSearch {
         if !isSearching {
           state.text = ""
         }
+        return .none
+      case .settingsTapped:
         return .none
       case .binding:
         return .none

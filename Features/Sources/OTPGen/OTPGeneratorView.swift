@@ -5,12 +5,15 @@
 //  Created by Rayhan Nabi on 21/2/24.
 //
 
-import ComposableArchitecture
+import Common
 import Domain
 import SwiftUI
 
 public struct OTPGeneratorView: View {
   let store: StoreOf<OTPGenerator>
+  private let defaultColor: Color = {
+    [.red, .green, .blue, .orange, .pink, .purple, .cyan, .mint].randomElement()!
+  }()
 
   public init(store: StoreOf<OTPGenerator>) {
     self.store = store
@@ -45,10 +48,6 @@ public struct OTPGeneratorView: View {
 }
 
 extension OTPGeneratorView {
-  private var defaultColor: Color {
-    [.red, .green, .blue, .orange, .pink, .purple, .cyan, .mint].randomElement()!
-  }
-
   private var iconView: some View {
     AsyncImage(url: store.entry.iconURL) { image in
       image
@@ -57,15 +56,20 @@ extension OTPGeneratorView {
         .clipShape(.rect(cornerRadius: 12))
         .padding(8)
     } placeholder: {
-      Circle()
-        .fill(defaultColor.opacity(0.5))
-        .overlay {
-          Image(systemName: "key.fill")
-            .font(.title)
-        }
-        .padding(4)
+      if store.entry.iconURL == nil {
+        Circle()
+          .fill(defaultColor.opacity(0.5))
+          .overlay {
+            Image(systemName: "key.fill")
+              .font(.title)
+          }
+          .padding(4)
+      } else {
+        ProgressView()
+      }
     }
     .frame(width: 72, height: 72)
+    .id(store.entry)
   }
 
   private var issuerView: some View {
@@ -73,6 +77,7 @@ extension OTPGeneratorView {
       .bold()
       .font(.title2)
       .tracking(0.5)
+      .animation(nil, value: store.entry)
   }
 
   private var accountView: some View {
@@ -82,6 +87,7 @@ extension OTPGeneratorView {
       .tracking(0.5)
       .multilineTextAlignment(.center)
       .foregroundStyle(store.entry.issuer == nil ? .primary : .secondary)
+      .animation(nil, value: store.entry)
   }
 
   private var codeView: some View {

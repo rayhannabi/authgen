@@ -1,4 +1,4 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 5.10
 
 import PackageDescription
 
@@ -12,17 +12,17 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(path: "../Features"),
+    .package(path: "../Common"),
     .package(path: "../Domain"),
-    .package(path: "../Utilities"),
+    .package(path: "../Features"),
   ],
   targets: [
     .target(
       name: "AuthgenKit",
       dependencies: [
-        "Features",
+        "Common",
         "Domain",
-        "Utilities",
+        "Features",
       ]
     )
   ]

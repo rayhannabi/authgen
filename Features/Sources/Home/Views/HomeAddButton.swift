@@ -5,6 +5,7 @@
 //  Created by Rayhan Nabi on 18/3/24.
 //
 
+import Common
 import SwiftUI
 
 struct HomeAddButton: View {
@@ -16,8 +17,9 @@ struct HomeAddButton: View {
       Image(systemName: "plus")
         .foregroundStyle(.background)
         .font(.title)
+        .shadow(radius: 8)
         .padding()
-        .background(.primary)
+        .background(.tint)
         .clipShape(.rect(cornerRadius: 12))
         .shadow(color: .primary.opacity(0.3), radius: 16)
     }

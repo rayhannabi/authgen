@@ -5,7 +5,7 @@
 //  Created by Rayhan Nabi on 21/2/24.
 //
 
-import ComposableArchitecture
+import Common
 import Domain
 import OTPGen
 import SwiftUI
@@ -33,7 +33,7 @@ public struct Home {
     public init(entries: [Entry], selectedEntry: Entry? = nil) {
       self.entries = entries
       self.selectedEntry = selectedEntry ?? entries.first
-      self.searchState = .init(showsSearchButton: !entries.isEmpty)
+      self.searchState = .init(showsSearch: !entries.isEmpty)
       if let entry = self.selectedEntry {
         self.otpState = .init(entry: entry)
       }
@@ -61,6 +61,7 @@ public struct Home {
       case .binding:
         return .none
       case .selectEntry(let entry):
+        guard state.selectedEntry != entry else { return .none }
         return updateEntrySelection(&state, entry: entry)
       case .editEntry(let entry):
         return .none

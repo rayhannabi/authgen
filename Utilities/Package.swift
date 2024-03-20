@@ -11,17 +11,9 @@ let package = Package(
       targets: ["Utilities"]
     )
   ],
-  dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "1.8.0"),
-    .package(url: "https://github.com/tgrapperon/swift-dependencies-additions", from: "1.0.0"),
-  ],
   targets: [
     .target(
-      name: "Utilities",
-      dependencies: [
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-        .product(name: "DependenciesAdditions", package: "swift-dependencies-additions"),
-      ]
+      name: "Utilities"
     ),
     .testTarget(
       name: "UtilitiesTests",

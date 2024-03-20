@@ -31,6 +31,7 @@ struct HomeEntryView: View {
         Button("Edit", systemImage: "pencil") {
           editAction?(entry)
         }
+        Divider()
         Button("Delete", systemImage: "trash", role: .destructive) {
           deleteAction?(entry)
         }
@@ -65,8 +66,7 @@ extension HomeEntryView {
     text.foregroundColor = isPrimary ? .primary : .secondary
     text.font = isPrimary ? .headline.bold() : .subheadline
     text.tracking = isPrimary ? 0.5 : 0
-    let lowercasedText = AttributedString(value.lowercased())
-    guard let range = lowercasedText.range(of: searchText.lowercased()) else { return text }
+    guard let range = text.range(of: searchText, options: .caseInsensitive) else { return text }
     text[range].foregroundColor = .accentColor
     return text
   }
@@ -76,8 +76,7 @@ extension HomeEntryView {
     text.foregroundColor = .primary
     text.font = .headline.bold()
     text.tracking = 0.5
-    let lowercasedText = AttributedString(value.lowercased())
-    guard let range = lowercasedText.range(of: searchText.lowercased()) else { return text }
+    guard let range = text.range(of: searchText, options: .caseInsensitive) else { return text }
     text[range].foregroundColor = .accentColor
     return text
   }
@@ -127,4 +126,3 @@ struct HomeEntryButtonStyle: ButtonStyle {
     }
   }
 #endif
-

@@ -5,11 +5,10 @@
 //  Created by Rayhan Nabi on 21/2/24.
 //
 
-import ComposableArchitecture
+import Common
 import Domain
 import OTPGen
 import SwiftUI
-import Utilities
 
 public struct HomeView: View {
   @Bindable var store: StoreOf<Home>
@@ -33,7 +32,6 @@ public struct HomeView: View {
       }
       addButton
     }
-    .contentMargins(16, for: .scrollContent)
     .safeAreaInset(edge: .top) {
       navigationBar
     }
@@ -54,6 +52,11 @@ extension HomeView {
         }
       }
     }
+    .contentMargins(.bottom, 88, for: .scrollContent)
+    .contentMargins(.bottom, 88, for: .scrollIndicators)
+    .contentMargins(.top, 12, for: .scrollContent)
+    .contentMargins(.top, 12, for: .scrollIndicators)
+    .contentMargins(.horizontal, 16, for: .scrollContent)
   }
 
   private var addButton: some View {
@@ -74,7 +77,7 @@ extension HomeView {
     ZStack(alignment: .top) {
       if let otpStore = store.scope(state: \.otpState, action: \.otpAction) {
         OTPGeneratorView(store: otpStore)
-          .padding(.top, 6)
+          .padding(.top, 8)
       }
       HomeSearchBar(
         store: store.scope(state: \.searchState, action: \.searchAction),
@@ -101,6 +104,7 @@ extension HomeView {
         }
         .ignoresSafeArea()
       Divider()
+        .opacity(0.5)
     }
   }
 

@@ -1,10 +1,10 @@
 // MARK: - Umbrella Imports
 
+@_exported import Common
 @_exported import Domain
 @_exported import Features
 @_exported import Foundation
 @_exported import SwiftUI
-@_exported import Utilities
 
 // MARK: - AuthgenKit
 

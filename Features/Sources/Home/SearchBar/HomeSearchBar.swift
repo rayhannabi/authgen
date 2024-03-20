@@ -5,7 +5,7 @@
 //  Created by Rayhan Nabi on 18/3/24.
 //
 
-import ComposableArchitecture
+import Common
 import SwiftUI
 
 struct HomeSearchBar: View {
@@ -55,7 +55,7 @@ struct HomeSearchBar: View {
 
   private var navigationView: some View {
     HStack {
-      if store.showsSearchButton {
+      if store.showsSearch {
         Button {
           store.send(.toggleSearch(true), animation: .snappy)
         } label: {
@@ -65,7 +65,7 @@ struct HomeSearchBar: View {
       }
       Spacer()
       Button {
-        // TODO: Navigate to settings
+        store.send(.settingsTapped)
       } label: {
         Image(systemName: "gearshape")
           .matchedGeometryEffect(id: SearchBarID.cancel(), in: namespace)
