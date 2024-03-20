@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71114A852B77D1C000F27530 /* AuthenticatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71114A842B77D1C000F27530 /* AuthenticatorApp.swift */; };
+		71114A852B77D1C000F27530 /* AuthgenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71114A842B77D1C000F27530 /* AuthgenApp.swift */; };
 		71114A892B77D1C200F27530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71114A882B77D1C200F27530 /* Assets.xcassets */; };
 		71114A8D2B77D1C200F27530 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71114A8C2B77D1C200F27530 /* Preview Assets.xcassets */; };
 		715555822BA8E871007B3905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715555812BA8E871007B3905 /* LaunchScreen.storyboard */; };
@@ -52,7 +52,7 @@
 
 /* Begin PBXFileReference section */
 		71114A812B77D1C000F27530 /* Authgen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authgen.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		71114A842B77D1C000F27530 /* AuthenticatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorApp.swift; sourceTree = "<group>"; };
+		71114A842B77D1C000F27530 /* AuthgenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthgenApp.swift; sourceTree = "<group>"; };
 		71114A882B77D1C200F27530 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71114A8C2B77D1C200F27530 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71114A942B77D39D00F27530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				71114A942B77D39D00F27530 /* Info.plist */,
-				71114A842B77D1C000F27530 /* AuthenticatorApp.swift */,
+				71114A842B77D1C000F27530 /* AuthgenApp.swift */,
 				71114A882B77D1C200F27530 /* Assets.xcassets */,
 				71114A8B2B77D1C200F27530 /* Preview Content */,
 				715555812BA8E871007B3905 /* LaunchScreen.storyboard */,
@@ -260,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71114A852B77D1C000F27530 /* AuthenticatorApp.swift in Sources */,
+				71114A852B77D1C000F27530 /* AuthgenApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

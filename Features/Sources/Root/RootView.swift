@@ -38,6 +38,5 @@ public struct RootView: View {
       store.send(.onAppear)
     }
     .tint(store.accentColor)
-    .preferredColorScheme(store.appearance?.colorScheme)
   }
 }

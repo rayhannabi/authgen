@@ -33,6 +33,7 @@ public struct Root {
   public init() {}
 
   @Dependency(\.appSettings) private var appSettings
+  @Dependency(\.application) private var application
 
   public var body: some ReducerOf<Root> {
     Reduce<State, Action> { state, action in
@@ -42,7 +43,7 @@ public struct Root {
         state.appearance = appSettings.appearance()
         state.iCloudSyncEnabled = appSettings.iCloudSyncEnabled() ?? false
         state.home = .init(entries: Entry.mocks)
-        return .none
+        return updateGlobalAppearance(state.appearance)
 
       case .home(.searchAction(.settingsTapped)):
         state.path.append(
@@ -91,7 +92,7 @@ public struct Root {
     case .update(.appearanceUpdated(let appearance)):
       state.appearance = appearance
       appSettings.setAppearance(appearance)
-      return .none
+      return updateGlobalAppearance(appearance)
     case .update(.iCloudSyncEnabled(let enabled)):
       state.iCloudSyncEnabled = enabled
       appSettings.setSyncEnabled(enabled)
@@ -101,9 +102,23 @@ public struct Root {
       state.appearance = nil
       appSettings.setAppearance(nil)
       appSettings.setAccentColor(nil)
-      return .none
+      return updateGlobalAppearance(nil)
     default:
       return .none
+    }
+  }
+
+  func updateGlobalAppearance(_ appearance: Appearance?) -> Effect<Action> {
+    .run { @MainActor _ in
+      application.connectedScenes
+        .compactMap { $0 as? UIWindowScene }
+        .map(\.windows)
+        .flatMap { $0 }
+        .forEach { window in
+          UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve) {
+            window.overrideUserInterfaceStyle = appearance?.userInterfaceStyle ?? .unspecified
+          }
+        }
     }
   }
 }

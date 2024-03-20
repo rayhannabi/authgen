@@ -41,7 +41,7 @@ public struct SettingsView: View {
           supportsOpacity: false
         )
         Button("Reset appearance") {
-          store.send(.update(.resetAppearanceTapped))
+          store.send(.update(.resetAppearanceTapped), animation: .default)
         }
       }
 

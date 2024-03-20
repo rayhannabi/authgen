@@ -24,6 +24,14 @@ extension Appearance {
     }
   }
 
+  public var userInterfaceStyle: UIUserInterfaceStyle {
+    switch self {
+    case .dark: .dark
+    case .light: .light
+    case .system: .unspecified
+    }
+  }
+
   var settingsKey: String? {
     switch self {
     case .system: nil
