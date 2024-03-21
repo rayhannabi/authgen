@@ -34,12 +34,16 @@ public struct SettingsView: View {
             Text($0.rawValue.capitalized)
           }
         }
-        .pickerStyle(.menu)
-        ColorPicker(
-          "Accent color",
-          selection: $store.accentColor.sending(\.update.accentColorUpdated).animation(),
-          supportsOpacity: false
-        )
+        #if !os(watchOS)
+          .pickerStyle(.menu)
+        #endif
+        #if !os(watchOS)
+          ColorPicker(
+            "Accent color",
+            selection: $store.accentColor.sending(\.update.accentColorUpdated).animation(),
+            supportsOpacity: false
+          )
+        #endif
         Button("Reset appearance") {
           store.send(.update(.resetAppearanceTapped), animation: .default)
         }

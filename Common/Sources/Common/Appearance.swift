@@ -24,6 +24,7 @@ extension Appearance {
     }
   }
 
+  #if os(iOS)
   public var userInterfaceStyle: UIUserInterfaceStyle {
     switch self {
     case .dark: .dark
@@ -31,6 +32,7 @@ extension Appearance {
     case .system: .unspecified
     }
   }
+  #endif
 
   var settingsKey: String? {
     switch self {

@@ -56,10 +56,10 @@ extension Color {
       assertionFailure("Could not convert color \(self)")
       return ""
     }
-    let r = clamp(lroundl(red * 255), in: 0...255)
-    let g = clamp(lroundl(green * 255), in: 0...255)
-    let b = clamp(lroundl(blue * 255), in: 0...255)
-    let a = clamp(lroundl(alpha * 255), in: 0...255)
+    let r = clamp(Int((red * 255).rounded()), in: 0...255)
+    let g = clamp(Int((green * 255).rounded()), in: 0...255)
+    let b = clamp(Int((blue * 255).rounded()), in: 0...255)
+    let a = clamp(Int((alpha * 255).rounded()), in: 0...255)
     return String(format: "#%02X%02X%02X%02X", r, g, b, a)
   }
 }
