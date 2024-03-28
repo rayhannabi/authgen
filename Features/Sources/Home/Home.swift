@@ -7,7 +7,7 @@
 
 import Common
 import Domain
-import OTPGen
+import OTPGenerator
 import SwiftUI
 
 @Reducer
@@ -28,6 +28,11 @@ public struct Home {
         entry.account.localizedCaseInsensitiveContains(searchState.text)
           || entry.issuer?.localizedCaseInsensitiveContains(searchState.text) ?? false
       }
+    }
+
+    var contentContext: EmptyContentView.Context {
+      if searchState.isSearching { return .searchResults }
+      return .entries
     }
 
     public init(entries: [Entry], selectedEntry: Entry? = nil) {

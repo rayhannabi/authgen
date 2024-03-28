@@ -22,8 +22,11 @@ public struct RootView: View {
     NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
       ZStack {
         if let homeStore = store.scope(state: \.home, action: \.home) {
+          #if os(watchOS)
+          HomeWatchView(store: homeStore)
+          #else
           HomeView(store: homeStore)
-            .toolbar(.hidden)
+          #endif
         }
       }
     } destination: { targetStore in

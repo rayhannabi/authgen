@@ -4,17 +4,17 @@ import PackageDescription
 
 let package = Package(
   name: "Features",
-  platforms: [.iOS(.v17), .macOS(.v14), .watchOS(.v10)],
+  platforms: [.iOS(.v17), .macOS(.v14)],
   products: [
     .library(name: "Features", targets: ["Features"]),
     .library(name: "Root", targets: ["Root"]),
     .library(name: "Home", targets: ["Home"]),
-    .library(name: "OTPGen", targets: ["OTPGen"]),
     .library(name: "Settings", targets: ["Settings"]),
   ],
   dependencies: [
     .package(path: "../Common"),
     .package(path: "../Domain"),
+    .package(path: "../SharedFeatures"),
   ],
   targets: [
     .target(
@@ -35,14 +35,7 @@ let package = Package(
       dependencies: [
         "Common",
         "Domain",
-        "OTPGen",
-      ]
-    ),
-    .target(
-      name: "OTPGen",
-      dependencies: [
-        "Common",
-        "Domain",
+        "SharedFeatures",
       ]
     ),
     .target(name: "Settings", dependencies: ["Common"]),

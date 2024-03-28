@@ -11,10 +11,19 @@
       location = "group:Features">
    </FileRef>
    <FileRef
+      location = "group:SharedFeatures">
+   </FileRef>
+   <FileRef
+      location = "group:WatchFeatures">
+   </FileRef>
+   <FileRef
       location = "group:Utilities">
    </FileRef>
    <FileRef
       location = "group:AuthgenKit">
+   </FileRef>
+   <FileRef
+      location = "group:AuthgenWatchKit">
    </FileRef>
    <FileRef
       location = "container:Authgen.xcodeproj">

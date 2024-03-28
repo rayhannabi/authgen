@@ -5,7 +5,6 @@
 //  Created by Rayhan Nabi on 21/2/24.
 //
 
-import DependenciesAdditions
 import Domain
 import SwiftUI
 
@@ -27,15 +26,15 @@ struct HomeEntryView: View {
     }
     .buttonStyle(HomeEntryButtonStyle())
     #if os(iOS)
-      .contextMenu {
-        Button("Edit", systemImage: "pencil") {
-          editAction?(entry)
-        }
-        Divider()
-        Button("Delete", systemImage: "trash", role: .destructive) {
-          deleteAction?(entry)
-        }
+    .contextMenu {
+      Button("Edit", systemImage: "pencil") {
+        editAction?(entry)
       }
+      Divider()
+      Button("Delete", systemImage: "trash", role: .destructive) {
+        deleteAction?(entry)
+      }
+    }
     #endif
   }
 }
@@ -118,11 +117,11 @@ struct HomeEntryButtonStyle: ButtonStyle {
 }
 
 #if DEBUG
-  #Preview {
-    ScrollView {
-      ForEach(Entry.mocks) {
-        HomeEntryView(entry: $0, searchText: .constant(""))
-      }
+#Preview {
+  ScrollView {
+    ForEach(Entry.mocks) {
+      HomeEntryView(entry: $0, searchText: .constant(""))
     }
   }
+}
 #endif

@@ -123,12 +123,12 @@ extension OTPGeneratorView {
 }
 
 #if DEBUG
-  #Preview {
-    OTPGeneratorView(
-      store: .init(
-        initialState: OTPGenerator.State(entry: Entry.mocks[0]),
-        reducer: OTPGenerator.init
-      )
+#Preview {
+  OTPGeneratorView(
+    store: .init(
+      initialState: OTPGenerator.State(entry: Entry.mocks[0]),
+      reducer: OTPGenerator.init
     )
-  }
+  )
+}
 #endif

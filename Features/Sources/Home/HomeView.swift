@@ -7,7 +7,7 @@
 
 import Common
 import Domain
-import OTPGen
+import OTPGenerator
 import SwiftUI
 
 public struct HomeView: View {
@@ -22,16 +22,13 @@ public struct HomeView: View {
   public var body: some View {
     ZStack {
       if store.filteredEntries.isEmpty {
-        if store.searchState.isSearching {
-          noSearchResultsView
-        } else {
-          noEntriesView
-        }
+        EmptyContentView(context: store.contentContext)
       } else {
         entriesView
       }
       addButton
     }
+    .toolbar(.hidden)
     .safeAreaInset(edge: .top) {
       navigationBar
     }
@@ -107,26 +104,12 @@ extension HomeView {
         .opacity(0.5)
     }
   }
-
-  private var noEntriesView: some View {
-    ContentUnavailableView(
-      "No Entry Yet",
-      systemImage: "tray",
-      description: Text("Tap on the + icon to add")
-    )
-  }
-
-  private var noSearchResultsView: some View {
-    ContentUnavailableView(
-      "No Results Found",
-      systemImage: "magnifyingglass",
-      description: Text("Please try a different search")
-    )
-  }
 }
 
 #if DEBUG
-  #Preview {
+#Preview {
+  NavigationStack {
     HomeView(store: .init(initialState: Home.State(entries: Entry.mocks), reducer: Home.init))
   }
+}
 #endif
