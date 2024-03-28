@@ -19,7 +19,7 @@ public struct WatchHomeView: View {
 
   public var body: some View {
     NavigationSplitView {
-      List(selection: $store.selectedEntry) {
+      List(selection: $store.selectedEntry.sending(\.entrySelected)) {
         ForEach(store.filteredEntries) { entry in
           WatchHomeEntryView(entry: entry)
             .background {
@@ -29,19 +29,13 @@ public struct WatchHomeView: View {
       }
       .searchable(text: $store.searchText.sending(\.searchUpdated), placement: .toolbar)
       .listStyle(.carousel)
-    } detail: {
-      TabView(selection: $store.selectedEntry) {
-        ForEach(store.entries) { entry in
-          OTPGeneratorWatchView(
-            store: .init(
-              initialState: OTPGenerator.State(entry: entry),
-              reducer: OTPGenerator.init
-            )
-          )
-          .tag(Optional(entry))
-        }
+      .onAppear {
+        store.send(.searchUpdated(""), animation: .default)
       }
-      .tabViewStyle(.verticalPage)
+    } detail: {
+      if let otpStore = store.scope(state: \.otp, action: \.otp) {
+        OTPGeneratorWatchView(store: otpStore)
+      }
     }
   }
 }

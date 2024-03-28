@@ -22,7 +22,7 @@ struct WatchHomeEntryView: View {
           .scaledToFit()
           .clipShape(.rect(cornerRadius: 2))
           .padding(2)
-          .frame(width: 24, height: 24)
+          .frame(width: 22, height: 22)
       }
     } placeholder: {
       contentView(issuer: entry.issuer, account: entry.account) {
@@ -33,7 +33,7 @@ struct WatchHomeEntryView: View {
               .font(.system(size: 8))
           }
           .padding(2)
-          .frame(width: 24, height: 24)
+          .frame(width: 22, height: 22)
       }
     }
   }

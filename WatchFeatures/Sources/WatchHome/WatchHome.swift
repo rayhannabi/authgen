@@ -8,27 +8,29 @@
 import Common
 import Domain
 import Foundation
+import OTPGenerator
 
 @Reducer
 public struct WatchHome {
   @ObservableState
   public struct State {
     var entries: [Entry]
+    var filteredEntries: [Entry]
     var selectedEntry: Entry?
     var searchText = ""
-
-    var filteredEntries: [Entry]
+    var otp: OTPGenerator.State?
 
     public init(entries: [Entry]) {
       self.entries = entries
       self.filteredEntries = entries
-      self.selectedEntry = selectedEntry ?? entries.first
     }
   }
 
   public enum Action: BindableAction {
     case binding(BindingAction<State>)
     case searchUpdated(String)
+    case entrySelected(Entry?)
+    case otp(OTPGenerator.Action)
   }
 
   public init() {}
@@ -38,9 +40,19 @@ public struct WatchHome {
       switch action {
       case .binding:
         return .none
-        
+
+      case .entrySelected(let entry):
+        state.selectedEntry = entry
+        if let entry {
+          state.otp = .init(entry: entry)
+        }
+        return .none
+
+      case .otp:
+        return .none
+
       case .searchUpdated(let text):
-        state.searchText = text
+        state.searchText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !state.searchText.isEmpty else {
           state.filteredEntries = state.entries
           return .none
@@ -51,6 +63,9 @@ public struct WatchHome {
         }
         return .none
       }
+    }
+    .ifLet(\.otp, action: \.otp) {
+      OTPGenerator()
     }
   }
 }

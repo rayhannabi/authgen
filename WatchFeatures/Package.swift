@@ -17,7 +17,7 @@ let package = Package(
     .library(
       name: "WatchHome",
       targets: ["WatchHome"]
-    )
+    ),
   ],
   dependencies: [
     .package(path: "../Common"),
@@ -38,6 +38,7 @@ let package = Package(
         "Common",
         "Domain",
         "WatchHome",
+        "SharedFeatures",
       ]
     ),
     .target(
@@ -45,7 +46,7 @@ let package = Package(
       dependencies: [
         "Common",
         "Domain",
-        "SharedFeatures"
+        "SharedFeatures",
       ]
     ),
     .testTarget(

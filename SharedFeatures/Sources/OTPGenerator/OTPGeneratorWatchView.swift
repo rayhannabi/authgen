@@ -23,13 +23,17 @@ public struct OTPGeneratorWatchView: View {
   public var body: some View {
     ScrollView {
       VStack(spacing: 0) {
-//        iconView
+        iconView
+        codeView
         issuerView
         accountView
-        codeView
       }
+      .frame(maxWidth: .infinity)
     }
-    .contentMargins(.horizontal, 8, for: .scrollContent)
+    .background {
+      backgroundView
+        .ignoresSafeArea(.all, edges: .all)
+    }
     .toolbar {
       ToolbarItem(placement: .topBarTrailing) {
         lifetimeView
@@ -47,9 +51,9 @@ extension OTPGeneratorWatchView {
       image
         .resizable()
         .scaledToFit()
-        .clipShape(.rect(cornerRadius: 12))
-        .frame(width: 24, height: 24)
-        .padding(8)
+        .clipShape(.rect(cornerRadius: 2))
+        .frame(width: 32, height: 32)
+        .shadow(color: .white.opacity(0.3), radius: 10)
     } placeholder: {
       if store.entry.iconURL == nil {
         Circle()
@@ -58,8 +62,7 @@ extension OTPGeneratorWatchView {
             Image(systemName: "key.fill")
               .font(.system(size: 12))
           }
-          .frame(width: 24, height: 24)
-          .padding(4)
+          .frame(width: 32, height: 32)
       } else {
         ProgressView()
       }
@@ -74,6 +77,7 @@ extension OTPGeneratorWatchView {
       .multilineTextAlignment(.center)
       .lineLimit(1)
       .animation(nil, value: store.entry)
+      .privacySensitive()
   }
 
   private var accountView: some View {
@@ -83,13 +87,14 @@ extension OTPGeneratorWatchView {
       .foregroundStyle(.secondary)
       .lineLimit(2)
       .animation(nil, value: store.entry)
+      .privacySensitive()
   }
 
   private var codeView: some View {
     Text(store.otp.formatted(.oneTimePassword))
       .font(.system(size: 32, weight: .bold, design: .monospaced))
       .multilineTextAlignment(.center)
-      .padding(.top, 12)
+      .padding(.vertical, 12)
       .contentTransition(.numericText())
       .animation(.smooth, value: store.otp)
       .privacySensitive()
@@ -102,16 +107,31 @@ extension OTPGeneratorWatchView {
         value: .init(get: { store.progress }, set: { _ in }),
         configuration: .init(
           progressTint: store.isCloseToEnd ? .red : .blue,
-          progressLineWidth: 4,
+          progressLineWidth: 3,
           lineCap: .butt
         )
       )
 
       Text("\(store.elapsedSeconds)")
-        .font(.system(size: 12))
+        .font(.system(size: 14, weight: .medium))
         .foregroundStyle(store.isCloseToEnd ? .red : .blue)
     }
-    .padding(4)
+    .padding(2)
+  }
+
+  private var backgroundView: some View {
+    Rectangle()
+      .fill(.ultraThinMaterial)
+      .background {
+        AsyncImage(url: store.entry.iconURL) { image in
+          image
+            .resizable()
+            .scaledToFit()
+            .blur(radius: 64)
+        } placeholder: {
+          EmptyView()
+        }
+      }
   }
 }
 
