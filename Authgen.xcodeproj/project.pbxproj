@@ -12,11 +12,10 @@
 		71114A8D2B77D1C200F27530 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71114A8C2B77D1C200F27530 /* Preview Assets.xcassets */; };
 		715555822BA8E871007B3905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715555812BA8E871007B3905 /* LaunchScreen.storyboard */; };
 		715555852BA9CCE3007B3905 /* AuthgenKit in Frameworks */ = {isa = PBXBuildFile; productRef = 715555842BA9CCE3007B3905 /* AuthgenKit */; };
+		718D1F802BAD50AC00D86EDA /* AuthgenWatchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 718D1F7F2BAD50AC00D86EDA /* AuthgenWatchKit */; };
 		71C68CF82BA9CE4000717DE8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71C68CF22BA9CE4000717DE8 /* Preview Assets.xcassets */; };
 		71C68CF92BA9CE4000717DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71C68CF42BA9CE4000717DE8 /* Assets.xcassets */; };
 		71C68CFA2BA9CE4000717DE8 /* AuthgenWatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C68CF52BA9CE4000717DE8 /* AuthgenWatchOSApp.swift */; };
-		71C68CFB2BA9CE4000717DE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C68CF62BA9CE4000717DE8 /* ContentView.swift */; };
-		71C68CFD2BA9CE7F00717DE8 /* AuthgenKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71C68CFC2BA9CE7F00717DE8 /* AuthgenKit */; };
 		71C68CFE2BA9D01B00717DE8 /* Authgen.app in Resources */ = {isa = PBXBuildFile; fileRef = 71114A812B77D1C000F27530 /* Authgen.app */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +60,6 @@
 		71C68CF22BA9CE4000717DE8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71C68CF42BA9CE4000717DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71C68CF52BA9CE4000717DE8 /* AuthgenWatchOSApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthgenWatchOSApp.swift; sourceTree = "<group>"; };
-		71C68CF62BA9CE4000717DE8 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		71F4EFD82BA9CDEB00624A0F /* Authgen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authgen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -78,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71C68CFD2BA9CE7F00717DE8 /* AuthgenKit in Frameworks */,
+				718D1F802BAD50AC00D86EDA /* AuthgenWatchKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,10 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				71114A942B77D39D00F27530 /* Info.plist */,
+				715555812BA8E871007B3905 /* LaunchScreen.storyboard */,
 				71114A842B77D1C000F27530 /* AuthgenApp.swift */,
 				71114A882B77D1C200F27530 /* Assets.xcassets */,
 				71114A8B2B77D1C200F27530 /* Preview Content */,
-				715555812BA8E871007B3905 /* LaunchScreen.storyboard */,
 			);
 			path = Authgen;
 			sourceTree = "<group>";
@@ -143,10 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				718D1F7E2BABB2B600D86EDA /* Info.plist */,
-				71C68CF32BA9CE4000717DE8 /* Preview Content */,
-				71C68CF42BA9CE4000717DE8 /* Assets.xcassets */,
 				71C68CF52BA9CE4000717DE8 /* AuthgenWatchOSApp.swift */,
-				71C68CF62BA9CE4000717DE8 /* ContentView.swift */,
+				71C68CF42BA9CE4000717DE8 /* Assets.xcassets */,
+				71C68CF32BA9CE4000717DE8 /* Preview Content */,
 			);
 			path = AuthgenWatchOS;
 			sourceTree = "<group>";
@@ -191,7 +188,7 @@
 			);
 			name = AuthgenWatchOS;
 			packageProductDependencies = (
-				71C68CFC2BA9CE7F00717DE8 /* AuthgenKit */,
+				718D1F7F2BAD50AC00D86EDA /* AuthgenWatchKit */,
 			);
 			productName = "AuthgenWatchOS Watch App";
 			productReference = 71F4EFD82BA9CDEB00624A0F /* Authgen.app */;
@@ -270,7 +267,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71C68CFB2BA9CE4000717DE8 /* ContentView.swift in Sources */,
 				71C68CFA2BA9CE4000717DE8 /* AuthgenWatchOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +502,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "AuthgenWatchOS/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = D7UYKU8YXP;
 				ENABLE_PREVIEWS = YES;
@@ -536,6 +533,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "AuthgenWatchOS/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = D7UYKU8YXP;
 				ENABLE_PREVIEWS = YES;
@@ -597,9 +595,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = AuthgenKit;
 		};
-		71C68CFC2BA9CE7F00717DE8 /* AuthgenKit */ = {
+		718D1F7F2BAD50AC00D86EDA /* AuthgenWatchKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AuthgenKit;
+			productName = AuthgenWatchKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

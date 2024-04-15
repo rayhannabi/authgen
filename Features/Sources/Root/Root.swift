@@ -33,9 +33,7 @@ public struct Root {
   public init() {}
 
   @Dependency(\.appSettings) private var appSettings
-  #if !os(watchOS)
-    @Dependency(\.application) private var application
-  #endif
+  @Dependency(\.application) private var application
 
   public var body: some ReducerOf<Root> {
     Reduce<State, Action> { state, action in
@@ -112,17 +110,15 @@ public struct Root {
 
   func updateGlobalAppearance(_ appearance: Appearance?) -> Effect<Action> {
     .run { @MainActor _ in
-      #if !os(watchOS)
-        application.connectedScenes
-          .compactMap { $0 as? UIWindowScene }
-          .map(\.windows)
-          .flatMap { $0 }
-          .forEach { window in
-            UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve) {
-              window.overrideUserInterfaceStyle = appearance?.userInterfaceStyle ?? .unspecified
-            }
+      application.connectedScenes
+        .compactMap { $0 as? UIWindowScene }
+        .map(\.windows)
+        .flatMap { $0 }
+        .forEach { window in
+          UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve) {
+            window.overrideUserInterfaceStyle = appearance?.userInterfaceStyle ?? .unspecified
           }
-      #endif
+        }
     }
   }
 }
